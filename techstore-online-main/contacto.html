@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - TechStore Online</title>
+  <base href="./">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-page="contacto">
+
+  <header>
+    <p><a href="index.html"><img src="img/logo.svg" alt="Logo TechStore" width="40" height="40"> TechStore Online</a></p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="producto.html">Detalle</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        <li><a href="acerca.html">Acerca de</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>Contacto</h1>
+    <p>Completa el formulario y te contactaremos pronto.</p>
+
+    <form id="form-contacto" action="#" method="post" enctype="multipart/form-data">
+      <h2>Formulario de contacto</h2>
+      <div id="mensajes-formulario" aria-live="polite"></div>
+      <input type="hidden" name="formulario_id" value="contacto-2026">
+
+      <p>
+        <label for="nombre">Nombre *</label><br>
+        <input type="text" id="nombre" name="nombre" required placeholder="Juan Pérez" autocomplete="name" minlength="2">
+      </p>
+      <p>
+        <label for="email">Email *</label><br>
+        <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" autocomplete="email">
+      </p>
+      <p>
+        <label for="password">Contraseña *</label><br>
+        <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+      </p>
+      <p>
+        <label for="telefono">Teléfono</label><br>
+        <input type="tel" id="telefono" name="telefono" placeholder="+52 555 123 4567" autocomplete="tel">
+      </p>
+      <p>
+        <label for="edad">Edad</label><br>
+        <input type="number" id="edad" name="edad" min="18" max="120">
+      </p>
+      <p>
+        <label for="fecha-nac">Fecha de nacimiento</label><br>
+        <input type="date" id="fecha-nac" name="fecha_nac" min="1920-01-01" max="2008-12-31">
+      </p>
+      <p>
+        <label for="cita">Fecha y hora de contacto</label><br>
+        <input type="datetime-local" id="cita" name="cita">
+      </p>
+      <p>
+        <label for="color-fav">Color favorito</label><br>
+        <input type="color" id="color-fav" name="color_fav" value="#2563EB">
+      </p>
+      <p>
+        <label for="presupuesto">Presupuesto: <output for="presupuesto" id="presupuesto-valor">500</output></label><br>
+        <input type="range" id="presupuesto" name="presupuesto" min="100" max="5000" step="100" value="500">
+      </p>
+      <p>
+        <label for="sitio-web">Sitio web</label><br>
+        <input type="url" id="sitio-web" name="sitio_web" placeholder="https://ejemplo.com">
+      </p>
+      <p>
+        <label for="archivo">Archivo adjunto</label><br>
+        <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.png" multiple>
+      </p>
+      <p>
+        <label for="asunto">Asunto</label><br>
+        <select id="asunto" name="asunto" required>
+          <option value="">Selecciona</option>
+          <optgroup label="Ventas">
+            <option value="compra">Compra</option>
+            <option value="devolucion">Devolución</option>
+          </optgroup>
+          <optgroup label="Soporte">
+            <option value="tecnico">Soporte técnico</option>
+          </optgroup>
+        </select>
+      </p>
+      <p>
+        <label for="mensaje">Mensaje *</label><br>
+        <textarea id="mensaje" name="mensaje" rows="5" required minlength="10"></textarea>
+      </p>
+
+      <fieldset>
+        <legend>Preferencias</legend>
+        <input type="checkbox" id="newsletter" name="newsletter" value="si">
+        <label for="newsletter">Newsletter</label><br>
+        <input type="checkbox" id="ofertas" name="ofertas" value="si" checked>
+        <label for="ofertas">Ofertas</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contacto preferido</legend>
+        <input type="radio" id="contacto-email" name="metodo" value="email" checked>
+        <label for="contacto-email">Email</label><br>
+        <input type="radio" id="contacto-tel" name="metodo" value="telefono">
+        <label for="contacto-tel">Teléfono</label>
+      </fieldset>
+
+      <p>
+        <label for="referido">¿Cómo nos conociste?</label><br>
+        <input type="text" id="referido" name="referido" list="fuentes-lista">
+        <datalist id="fuentes-lista">
+          <option value="Redes sociales">
+          <option value="Google">
+          <option value="Recomendación">
+        </datalist>
+      </p>
+      <p>
+        <label for="codigo-promo">Código promo (solo lectura)</label><br>
+        <input type="text" id="codigo-promo" name="codigo_promo" value="TECH2026" readonly>
+      </p>
+      <p>
+        <label for="campo-disabled">Campo deshabilitado</label><br>
+        <input type="text" id="campo-disabled" value="No editable" disabled>
+      </p>
+
+      <button type="submit">Enviar</button>
+      <button type="reset">Restablecer</button>
+    </form>
+  </main>
+
+  <footer>
+    <address><a href="mailto:soporte@techstore.com">soporte@techstore.com</a></address>
+    <small>&copy; 2026 TechStore Online</small>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

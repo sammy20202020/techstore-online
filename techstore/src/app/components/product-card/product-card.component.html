@@ -1,0 +1,43 @@
+<article class="product-card" [class.out-of-stock]="!producto.disponible">
+  <div class="card-image">
+    @if (producto.oferta) {
+      <span class="badge badge-sale">{{ producto.oferta }}</span>
+    }
+    <button
+      type="button"
+      class="fav-btn"
+      (click)="toggleFavorito()"
+      [attr.aria-label]="esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+    >
+      {{ esFavorito() ? '❤️' : '🤍' }}
+    </button>
+    <img [src]="producto.imagen" [alt]="producto.nombre" loading="lazy" />
+  </div>
+
+  <div class="card-body">
+    <p class="card-meta">{{ producto.categoria | uppercase }} · {{ producto.marca | uppercase }}</p>
+    <h3 class="card-title">
+      <a [routerLink]="['/producto', producto.id]">{{ producto.nombre }}</a>
+    </h3>
+
+    <div class="card-price">
+      @if (producto.oferta) {
+        <span class="price-current">{{ producto.precio | descuento: porcentajeOferta() | currency: 'USD' }}</span>
+        <span class="price-old">{{ producto.precio | currency: 'USD' }}</span>
+      } @else {
+        <span class="price-current">{{ producto.precio | currency: 'USD' }}</span>
+      }
+    </div>
+
+    <span class="badge" [class.badge-success]="producto.disponible" [class.badge-danger]="!producto.disponible">
+      {{ producto.disponible ? 'Disponible' : 'Agotado' }}
+    </span>
+  </div>
+
+  <div class="card-footer">
+    <a [routerLink]="['/producto', producto.id]" class="btn btn-ghost btn-sm">Ver detalle</a>
+    <button type="button" class="btn btn-primary btn-sm" (click)="agregarCarrito()" [disabled]="!producto.disponible">
+      {{ producto.disponible ? 'Agregar' : 'Agotado' }}
+    </button>
+  </div>
+</article>

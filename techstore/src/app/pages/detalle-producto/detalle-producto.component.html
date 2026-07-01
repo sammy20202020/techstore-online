@@ -1,0 +1,58 @@
+<div class="page">
+  @if (producto) {
+    <nav class="breadcrumb" aria-label="Ruta">
+      <a routerLink="/">Inicio</a>
+      <span>/</span>
+      <a routerLink="/productos">Productos</a>
+      <span>/</span>
+      <span>{{ producto.nombre }}</span>
+    </nav>
+
+    <article class="product-detail panel">
+      <div class="detail-gallery">
+        @if (producto.oferta) {
+          <span class="badge badge-sale">{{ producto.oferta }}</span>
+        }
+        <img [src]="producto.imagen" [alt]="producto.nombre" />
+      </div>
+
+      <div class="detail-info">
+        <p class="detail-meta">{{ producto.categoria | uppercase }} · {{ producto.marca | uppercase }}</p>
+        <h1>{{ producto.nombre }}</h1>
+        <p class="detail-desc">{{ producto.descripcion ?? 'Producto de alta calidad TechStore.' }}</p>
+
+        @switch (producto.disponible) {
+          @case (true) {
+            <span class="badge badge-success">Disponible</span>
+          }
+          @default {
+            <span class="badge badge-danger">Agotado</span>
+          }
+        }
+
+        <div class="detail-price">
+          @if (producto.oferta) {
+            <span class="price-current">{{ producto.precio | descuento: porcentajeOferta() | currency: 'USD' }}</span>
+            <span class="price-old">{{ producto.precio | currency: 'USD' }}</span>
+          } @else {
+            <span class="price-current">{{ producto.precio | currency: 'USD' }}</span>
+          }
+        </div>
+
+        <form class="detail-actions" (submit)="$event.preventDefault(); agregarCarrito()">
+          <div class="form-group qty-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" class="form-control" [(ngModel)]="cantidad" name="cantidad" min="1" max="99" />
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!producto.disponible">
+            Agregar al carrito
+          </button>
+        </form>
+      </div>
+    </article>
+  } @else {
+    <div class="empty-state panel">
+      <p>Cargando producto...</p>
+    </div>
+  }
+</div>

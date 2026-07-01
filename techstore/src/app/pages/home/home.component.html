@@ -1,0 +1,69 @@
+<div class="page">
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Nueva temporada 2026</span>
+      <h1>Ofertas de Temporada</h1>
+      <p>Descubre las mejores ofertas en tecnología. Hasta <strong>50% de descuento</strong> en productos seleccionados.</p>
+      <div class="hero-actions">
+        <a routerLink="/productos" class="btn btn-primary">Comprar ahora</a>
+        <a routerLink="/contacto" class="btn btn-secondary">Conocer más</a>
+      </div>
+    </div>
+    <figure class="hero-image">
+      <img src="https://picsum.photos/seed/techbanner/700/400" alt="Banner promocional" />
+      <figcaption>Válido hasta <time datetime="2026-06-30">30 de junio de 2026</time></figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Categorías</h2>
+    </div>
+    <app-category-menu />
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Productos Destacados</h2>
+      <a routerLink="/productos" class="btn btn-ghost btn-sm">Ver todos →</a>
+    </div>
+    <div class="product-grid">
+      @for (producto of destacados; track producto.id) {
+        <app-product-card [producto]="producto" />
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Estadísticas en vivo</h2>
+      <span class="live-clock">{{ horaActual | date: 'mediumTime' }}</span>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="value">{{ statCarrito }}</span>
+        <span class="label">En carrito</span>
+      </div>
+      <div class="stat-card">
+        <span class="value">{{ statTotal | currency: 'USD' }}</span>
+        <span class="label">Total acumulado</span>
+      </div>
+      <div class="stat-card">
+        <span class="value">{{ statCategorias }}</span>
+        <span class="label">Categorías</span>
+      </div>
+      <div class="stat-card">
+        <span class="value stat-small">{{ statCaro }}</span>
+        <span class="label">Más caro</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+@if (mostrarOferta) {
+  <dialog open class="promo-dialog">
+    <h3>🎉 Oferta especial</h3>
+    <p>Usa el código <code>TECH25</code> para un 25% de descuento extra.</p>
+    <button type="button" class="btn btn-primary" (click)="mostrarOferta = false">Entendido</button>
+  </dialog>
+}

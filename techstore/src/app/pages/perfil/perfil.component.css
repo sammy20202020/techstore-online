@@ -1,0 +1,38 @@
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 600px;
+  flex-wrap: wrap;
+}
+
+.profile-avatar {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-info { flex: 1; }
+
+.profile-info h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+}
+
+.profile-info p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.token-label {
+  margin-top: 0.5rem !important;
+  font-size: 0.8rem;
+}

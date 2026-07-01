@@ -1,0 +1,109 @@
+<div class="page">
+  <header class="page-header">
+    <h1>Catálogo de Productos</h1>
+    <p>Explora nuestra selección de productos tecnológicos.</p>
+  </header>
+
+  <div class="page-layout page-layout--sidebar">
+    <aside class="filters-panel panel">
+      <h2 class="panel-title">Filtros</h2>
+      <form (ngSubmit)="aplicarFiltros()">
+        <div class="form-group">
+          <label for="q">Buscar</label>
+          <input
+            type="search"
+            id="q"
+            class="form-control"
+            [(ngModel)]="busqueda"
+            name="q"
+            placeholder="Nombre, marca..."
+            (input)="aplicarFiltros()"
+          />
+        </div>
+
+        <fieldset>
+          <legend>Precio</legend>
+          <div class="form-group">
+            <label for="precio-min">Mínimo ($)</label>
+            <input type="number" id="precio-min" class="form-control" [(ngModel)]="precioMin" name="precioMin" min="0" max="5000" />
+          </div>
+          <div class="form-group">
+            <label for="precio-max">Máximo ($)</label>
+            <input type="number" id="precio-max" class="form-control" [(ngModel)]="precioMax" name="precioMax" min="0" max="5000" />
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="marca">Marca</label>
+          <select id="marca" class="form-control" [(ngModel)]="marca" name="marca" (change)="aplicarFiltros()">
+            <option value="">Todas</option>
+            <option value="dell">Dell</option>
+            <option value="hp">HP</option>
+            <option value="apple">Apple</option>
+            <option value="samsung">Samsung</option>
+            <option value="xiaomi">Xiaomi</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Categoría</legend>
+          <label class="checkbox-row">
+            <input type="checkbox" [checked]="categorias.includes('laptops')" (change)="toggleCategoria('laptops')" />
+            Laptops
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" [checked]="categorias.includes('smartphones')" (change)="toggleCategoria('smartphones')" />
+            Smartphones
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" [checked]="categorias.includes('gaming')" (change)="toggleCategoria('gaming')" />
+            Gaming
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" [checked]="categorias.includes('accesorios')" (change)="toggleCategoria('accesorios')" />
+            Accesorios
+          </label>
+        </fieldset>
+
+        <label class="checkbox-row">
+          <input type="checkbox" [(ngModel)]="soloDisponibles" name="soloDisponibles" (change)="aplicarFiltros()" />
+          Solo disponibles
+        </label>
+
+        <div class="filter-actions">
+          <button type="submit" class="btn btn-primary btn-sm">Aplicar</button>
+          <button type="button" class="btn btn-ghost btn-sm" (click)="limpiarFiltros()">Limpiar</button>
+        </div>
+      </form>
+    </aside>
+
+    <div class="catalog-content">
+      <div class="section-header">
+        <h2>{{ productosFiltrados.length }} productos</h2>
+      </div>
+
+      @if (productosFiltrados.length === 0) {
+        <div class="empty-state panel">
+          <p>No se encontraron productos con esos filtros.</p>
+          <button type="button" class="btn btn-primary" (click)="limpiarFiltros()">Limpiar filtros</button>
+        </div>
+      } @else {
+        <div class="product-grid">
+          @for (producto of productosPaginados; track producto.id) {
+            <app-product-card [producto]="producto" />
+          }
+        </div>
+
+        @if (totalPaginas > 1) {
+          <nav class="pagination" aria-label="Paginación">
+            @for (p of paginas; track p) {
+              <button type="button" [class.activa]="paginaActual === p" (click)="cambiarPagina(p)">
+                {{ p }}
+              </button>
+            }
+          </nav>
+        }
+      }
+    </div>
+  </div>
+</div>

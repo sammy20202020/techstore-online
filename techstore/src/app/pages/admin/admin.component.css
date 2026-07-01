@@ -1,0 +1,15 @@
+.admin-form {
+  position: sticky;
+  top: calc(var(--header-h) + 1rem);
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.35rem;
+}

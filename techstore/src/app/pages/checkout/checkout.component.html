@@ -1,0 +1,88 @@
+<div class="page">
+  <header class="page-header">
+    <h1>Checkout</h1>
+    <p>Completa tus datos para finalizar la compra.</p>
+  </header>
+
+  @if (ordenConfirmada) {
+    <div class="confirmacion panel">
+      <div class="success-icon">✓</div>
+      <h2>¡Compra realizada!</h2>
+      <p>Orden <strong>{{ ordenConfirmada.id }}</strong></p>
+      <p>{{ ordenConfirmada.fecha | date: 'medium' }}</p>
+      <p class="confirm-total">Total: {{ ordenConfirmada.total | currency: 'USD' }}</p>
+      <button type="button" class="btn btn-primary" (click)="volverInicio()">Volver al inicio</button>
+    </div>
+  } @else {
+    <div class="page-layout page-layout--split">
+      <form class="panel checkout-form" [formGroup]="checkoutForm" (ngSubmit)="enviar()">
+        <h2 class="panel-title">Datos de envío y pago</h2>
+
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input id="nombre" type="text" class="form-control" formControlName="nombre" placeholder="Juan Pérez" />
+          @if (f.nombre.touched && f.nombre.errors?.['required']) {
+            <span class="form-error">El nombre es obligatorio.</span>
+          }
+          @if (f.nombre.touched && f.nombre.errors?.['minlength']) {
+            <span class="form-error">Mínimo 2 caracteres.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input id="email" type="email" class="form-control" formControlName="email" placeholder="correo@ejemplo.com" />
+          @if (f.email.touched && f.email.errors?.['required']) {
+            <span class="form-error">El email es obligatorio.</span>
+          }
+          @if (f.email.touched && f.email.errors?.['email']) {
+            <span class="form-error">Ingresa un email válido.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="direccion">Dirección *</label>
+          <input id="direccion" type="text" class="form-control" formControlName="direccion" placeholder="Calle #123" />
+          @if (f.direccion.touched && f.direccion.errors?.['required']) {
+            <span class="form-error">La dirección es obligatoria.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono *</label>
+          <input id="telefono" type="tel" class="form-control" formControlName="telefono" placeholder="+52 555 123 4567" />
+          @if (f.telefono.touched && f.telefono.errors?.['pattern']) {
+            <span class="form-error">Ingresa un teléfono válido.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="tarjeta">Tarjeta (16 dígitos) *</label>
+          <input id="tarjeta" type="text" class="form-control" formControlName="tarjeta" placeholder="1234567890123456" maxlength="16" />
+          @if (f.tarjeta.touched && f.tarjeta.errors?.['pattern']) {
+            <span class="form-error">Debe tener exactamente 16 dígitos.</span>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-primary">Confirmar compra</button>
+      </form>
+
+      @if (items$ | async; as items) {
+        <aside class="panel checkout-summary">
+          <h2 class="panel-title">Resumen</h2>
+          <ul class="summary-items">
+            @for (item of items; track item.id) {
+              <li>
+                <span>{{ item.nombre }} ×{{ item.cantidad }}</span>
+                <span>{{ item.precio * item.cantidad | currency: 'USD' }}</span>
+              </li>
+            }
+          </ul>
+          <p class="summary-row"><span>Subtotal</span><span>{{ subtotal(items) | currency: 'USD' }}</span></p>
+          <p class="summary-row"><span>IVA (16%)</span><span>{{ iva(items) | currency: 'USD' }}</span></p>
+          <p class="summary-row total"><span>Total</span><span>{{ total(items) | currency: 'USD' }}</span></p>
+        </aside>
+      }
+    </div>
+  }
+</div>

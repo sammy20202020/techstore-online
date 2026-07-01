@@ -1,0 +1,45 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a routerLink="/" class="brand">
+      <img src="assets/img/logo.svg" alt="TechStore" width="36" height="36" />
+      <span>TechStore</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Menú principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+      <a routerLink="/productos" routerLinkActive="active">Productos</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+      @if (auth.isAuthenticated()) {
+        <a routerLink="/historial" routerLinkActive="active">Historial</a>
+        <a routerLink="/admin" routerLinkActive="active">Admin</a>
+      }
+    </nav>
+
+    <div class="header-actions">
+      <app-search-bar />
+
+      <a routerLink="/carrito" class="cart-btn" routerLinkActive="active" aria-label="Carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-count">{{ carrito.cantidadItems$ | async }}</span>
+      </a>
+
+      @if (auth.isAuthenticated()) {
+        <a routerLink="/perfil" class="btn btn-sm btn-ghost header-user">Perfil</a>
+      } @else {
+        <a routerLink="/login" class="btn btn-sm btn-primary">Login</a>
+      }
+
+      <button
+        type="button"
+        class="btn-icon theme-toggle"
+        (click)="theme.toggle()"
+        [attr.aria-label]="theme.isOscuro() ? 'Modo claro' : 'Modo oscuro'"
+      >
+        {{ theme.isOscuro() ? '☀️' : '🌙' }}
+      </button>
+    </div>
+  </div>
+</header>

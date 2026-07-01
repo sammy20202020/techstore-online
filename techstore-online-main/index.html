@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechStore Online - Tienda de tecnología">
+  <title>TechStore Online - Inicio</title>
+  <base href="./">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-page="index">
+
+  <header>
+    <p><a href="index.html"><img src="img/logo.svg" alt="Logo TechStore" width="40" height="40"> TechStore Online</a></p>
+    <nav aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="producto.html">Detalle</a></li>
+        <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="acerca.html">Acerca de</a></li>
+      </ul>
+    </nav>
+    <form action="productos.html" method="get" role="search">
+      <label for="buscar">Buscar:</label>
+      <input type="search" id="buscar" name="q" placeholder="Productos...">
+      <button type="submit">Buscar</button>
+    </form>
+    <hr>
+  </header>
+
+  <main>
+    <section aria-labelledby="banner-titulo">
+      <h1 id="banner-titulo">Ofertas de Temporada</h1>
+      <p>Descubre las mejores ofertas en tecnología. Hasta <strong>50% de descuento</strong> en productos seleccionados.</p>
+      <p><a href="productos.html">Comprar ahora</a> | <a href="acerca.html">Conocer más</a></p>
+      <figure>
+        <img src="https://picsum.photos/seed/techbanner/700/400" alt="Banner promocional" width="700" height="400">
+        <figcaption>Promoción válida hasta <time datetime="2026-06-30">30 de junio de 2026</time></figcaption>
+      </figure>
+    </section>
+
+    <hr>
+
+    <section aria-labelledby="categorias-titulo">
+      <h2 id="categorias-titulo">Categorías</h2>
+      <ul>
+        <li><article><h3>Laptops</h3><p>Portátiles para trabajo y gaming.</p></article></li>
+        <li><article><h3>Smartphones</h3><p>Teléfonos de las mejores marcas.</p></article></li>
+        <li><article><h3>Accesorios</h3><p>Auriculares, cargadores y más.</p></article></li>
+        <li><article><h3>Gaming</h3><p>Consolas y periféricos gamer.</p></article></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section id="destacados" aria-labelledby="destacados-titulo">
+      <h2 id="destacados-titulo">Productos Destacados</h2>
+
+      <article>
+        <p><strong>Oferta</strong></p>
+        <img src="https://picsum.photos/seed/laptop1/400/300" alt="Laptop Gamer Pro X15" width="400" height="300">
+        <h3>Laptop Gamer Pro X15</h3>
+        <p>Intel Core i7, 16GB RAM, RTX 4060.</p>
+        <p>Precio: <strong>$1,299</strong> <mark>20% OFF</mark></p>
+        <p>Disponible</p>
+        <button type="button" data-id="1">Comprar</button>
+      </article>
+
+      <article>
+        <img src="https://picsum.photos/seed/phone1/400/300" alt="Galaxy Ultra S24" width="400" height="300">
+        <h3>Galaxy Ultra S24</h3>
+        <p>AMOLED 6.7", cámara 200MP, 256GB.</p>
+        <p>Precio: <strong>$899</strong></p>
+        <p>Disponible</p>
+        <button type="button" data-id="2">Comprar</button>
+      </article>
+
+      <article>
+        <p><strong>Oferta</strong></p>
+        <img src="https://picsum.photos/seed/headphones/400/300" alt="NoiseCancel Pro" width="400" height="300">
+        <h3>NoiseCancel Pro</h3>
+        <p>Cancelación de ruido, 40h batería.</p>
+        <p>Precio: <strong>$249</strong> <mark>15% OFF</mark></p>
+        <p>Disponible</p>
+        <button type="button" data-id="3">Comprar</button>
+      </article>
+
+      <article>
+        <img src="https://picsum.photos/seed/monitor/400/300" alt="Monitor Gaming 27 pulgadas" width="400" height="300">
+        <h3>Monitor Gaming 27"</h3>
+        <p>144Hz, QHD, FreeSync.</p>
+        <p>Precio: <strong>$449</strong></p>
+        <p>Agotado</p>
+        <button type="button" disabled>Agotado</button>
+      </article>
+
+      <article>
+        <img src="https://picsum.photos/seed/keyboard/400/300" alt="Teclado Mecánico RGB" width="400" height="300">
+        <h3>Teclado Mecánico RGB</h3>
+        <p>Switches Cherry MX, retroiluminación RGB.</p>
+        <p>Precio: <strong>$129</strong></p>
+        <p>Disponible</p>
+        <button type="button" data-id="5">Comprar</button>
+      </article>
+
+      <article>
+        <p><strong>Oferta</strong></p>
+        <img src="https://picsum.photos/seed/tablet/400/300" alt="Tablet Pro 12.9" width="400" height="300">
+        <h3>Tablet Pro 12.9"</h3>
+        <p>Chip M2, pantalla Liquid Retina.</p>
+        <p>Precio: <strong>$799</strong> <mark>10% OFF</mark></p>
+        <p>Disponible</p>
+        <button type="button" data-id="6">Comprar</button>
+      </article>
+
+      <article>
+        <img src="https://picsum.photos/seed/webcam/400/300" alt="Webcam 4K" width="400" height="300">
+        <h3>Webcam 4K Ultra HD</h3>
+        <p>4K, autofoco, micrófono dual.</p>
+        <p>Precio: <strong>$89</strong></p>
+        <p>Disponible</p>
+        <button type="button" data-id="7">Comprar</button>
+      </article>
+
+      <article>
+        <img src="https://picsum.photos/seed/console/400/300" alt="Consola NextGen X" width="400" height="300">
+        <h3>Consola NextGen X</h3>
+        <p>SSD, ray tracing, 4K 120fps.</p>
+        <p>Precio: <strong>$499</strong></p>
+        <p>Disponible</p>
+        <button type="button" data-id="8">Comprar</button>
+      </article>
+    </section>
+
+    <hr>
+
+    <section aria-labelledby="dash-titulo">
+      <h2 id="dash-titulo">Estadísticas</h2>
+      <ul>
+        <li>Productos en carrito: <span id="stat-carrito">0</span></li>
+        <li>Total acumulado: <span id="stat-total">$0.00</span></li>
+        <li>Categorías: <span id="stat-categorias">0</span></li>
+        <li>Producto más caro: <span id="stat-caro">-</span></li>
+      </ul>
+      <p id="reloj"></p>
+    </section>
+
+    <hr>
+
+    <section aria-labelledby="lab-titulo">
+      <h2 id="lab-titulo">Laboratorio HTML5</h2>
+      <dl>
+        <dt>Ruby</dt>
+        <dd><ruby>漢<rp>(</rp><rt>kan</rt><rp>)</rp>字<rp>(</rp><rt>ji</rt><rp>)</rp></ruby></dd>
+        <dt>BDI / BDO</dt>
+        <dd>Usuario: <bdi>إيان</bdi> | <bdo dir="rtl">TechStore</bdo></dd>
+        <dt>WBR</dt>
+        <dd>supercalifragilistico<wbr>extraordinario</dd>
+        <dt>Data</dt>
+        <dd><data value="SKU-1001">Laptop Gamer Pro X15</data></dd>
+      </dl>
+      <p>Atajo: <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+      <pre><code>const producto = { id: "SKU-1001", precio: 1299 };</code></pre>
+      <p><del>$1,599</del> <ins>$1,299</ins> | H<sub>2</sub>O | E=mc<sup>2</sup></p>
+      <p><q>La imaginación es más importante que el conocimiento.</q></p>
+      <svg width="200" height="80" aria-label="Gráfico de ventas">
+        <rect x="10" y="20" width="30" height="60" fill="blue"/>
+        <rect x="50" y="10" width="30" height="70" fill="navy"/>
+        <rect x="90" y="30" width="30" height="50" fill="orange"/>
+      </svg>
+      <canvas width="300" height="60">Canvas demo</canvas>
+      <template id="tpl-producto"><article><h3></h3><p></p></article></template>
+      <dialog id="modal-oferta" open>
+        <h3>Oferta especial</h3>
+        <p>Código: <code>TECH25</code> — 25% de descuento.</p>
+        <form method="dialog"><button type="submit">Cerrar</button></form>
+      </dialog>
+    </section>
+  </main>
+
+  <footer>
+    <h3>TechStore Online</h3>
+    <ul>
+      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+      <li><a href="productos.html">Catálogo</a></li>
+      <li><a href="carrito.html">Carrito</a></li>
+    </ul>
+    <address>
+      Calle Tecnología #123, Ciudad Digital<br>
+      Tel: <a href="tel:+18001234567">+1 (800) 123-4567</a><br>
+      Email: <a href="mailto:info@techstore.com">info@techstore.com</a>
+    </address>
+    <small>&copy; <time datetime="2026">2026</time> TechStore Online.</small>
+  </footer>
+
+  <noscript><p>Este sitio funciona mejor con JavaScript activado.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

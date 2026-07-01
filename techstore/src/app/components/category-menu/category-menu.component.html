@@ -1,0 +1,19 @@
+<ul class="categories-grid">
+  @for (cat of categorias; track cat.id) {
+    <li>
+      <article class="category-card" [ngStyle]="{ '--accent-color': getColor(cat.id) }">
+        <div class="category-icon">{{ getIcon(cat.id) }}</div>
+        <h3>{{ cat.nombre }}</h3>
+        <p>{{ cat.descripcion }}</p>
+        <label class="checkbox-row">
+          <input
+            type="checkbox"
+            [checked]="estaSeleccionada(cat.id)"
+            (change)="onCategoriaChange(cat.id, $any($event.target).checked)"
+          />
+          Filtrar
+        </label>
+      </article>
+    </li>
+  }
+</ul>

@@ -1,0 +1,17 @@
+[
+  { "id": 1, "nombre": "Laptop Gamer Pro X15", "precio": 1299, "categoria": "laptops", "marca": "dell", "imagen": "https://picsum.photos/seed/laptop1/400/300", "disponible": true, "oferta": "20% OFF" },
+  { "id": 2, "nombre": "Galaxy Ultra S24", "precio": 899, "categoria": "smartphones", "marca": "samsung", "imagen": "https://picsum.photos/seed/phone1/400/300", "disponible": true, "oferta": null },
+  { "id": 3, "nombre": "NoiseCancel Pro", "precio": 249, "categoria": "accesorios", "marca": "sony", "imagen": "https://picsum.photos/seed/headphones/400/300", "disponible": true, "oferta": "15% OFF" },
+  { "id": 4, "nombre": "Monitor Gaming 27\"", "precio": 449, "categoria": "gaming", "marca": "hp", "imagen": "https://picsum.photos/seed/monitor/400/300", "disponible": false, "oferta": null },
+  { "id": 5, "nombre": "Teclado Mecánico RGB", "precio": 129, "categoria": "gaming", "marca": "logitech", "imagen": "https://picsum.photos/seed/keyboard/400/300", "disponible": true, "oferta": null },
+  { "id": 6, "nombre": "Tablet Pro 12.9\"", "precio": 799, "categoria": "laptops", "marca": "apple", "imagen": "https://picsum.photos/seed/tablet/400/300", "disponible": true, "oferta": "10% OFF" },
+  { "id": 7, "nombre": "Webcam 4K Ultra HD", "precio": 89, "categoria": "accesorios", "marca": "logitech", "imagen": "https://picsum.photos/seed/webcam/400/300", "disponible": true, "oferta": null },
+  { "id": 8, "nombre": "Consola NextGen X", "precio": 499, "categoria": "gaming", "marca": "sony", "imagen": "https://picsum.photos/seed/console/400/300", "disponible": true, "oferta": null },
+  { "id": 9, "nombre": "MacBook Air M3", "precio": 1099, "categoria": "laptops", "marca": "apple", "imagen": "https://picsum.photos/seed/macbook/400/300", "disponible": true, "oferta": null },
+  { "id": 10, "nombre": "Xiaomi Redmi Note 13", "precio": 349, "categoria": "smartphones", "marca": "xiaomi", "imagen": "https://picsum.photos/seed/redmi/400/300", "disponible": true, "oferta": null },
+  { "id": 11, "nombre": "Mouse Gamer Pro", "precio": 59, "categoria": "gaming", "marca": "logitech", "imagen": "https://picsum.photos/seed/mouse/400/300", "disponible": true, "oferta": null },
+  { "id": 12, "nombre": "SSD NVMe 1TB", "precio": 119, "categoria": "accesorios", "marca": "samsung", "imagen": "https://picsum.photos/seed/ssd/400/300", "disponible": true, "oferta": null },
+  { "id": 13, "nombre": "HP Pavilion 15", "precio": 749, "categoria": "laptops", "marca": "hp", "imagen": "https://picsum.photos/seed/pavilion/400/300", "disponible": true, "oferta": null },
+  { "id": 14, "nombre": "Auriculares BT Sport", "precio": 79, "categoria": "accesorios", "marca": "sony", "imagen": "https://picsum.photos/seed/btsport/400/300", "disponible": true, "oferta": "5% OFF" },
+  { "id": 15, "nombre": "Control DualSense", "precio": 69, "categoria": "gaming", "marca": "sony", "imagen": "https://picsum.photos/seed/control/400/300", "disponible": true, "oferta": null }
+]

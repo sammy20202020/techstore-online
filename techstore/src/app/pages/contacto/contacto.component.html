@@ -1,0 +1,62 @@
+<div class="page">
+  <header class="page-header">
+    <h1>Contacto</h1>
+    <p>Completa el formulario y te contactaremos pronto.</p>
+  </header>
+
+  <form class="panel contact-form" [formGroup]="contactoForm" (ngSubmit)="enviar()">
+    @if (errores.length > 0) {
+      <ul class="form-errors">
+        @for (err of errores; track err) {
+          <li>{{ err }}</li>
+        }
+      </ul>
+    }
+
+    @if (enviado) {
+      <div class="form-success">Formulario enviado correctamente. Te contactaremos pronto.</div>
+    }
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="nombre">Nombre *</label>
+        <input id="nombre" type="text" class="form-control" formControlName="nombre" placeholder="Juan Pérez" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input id="email" type="email" class="form-control" formControlName="email" placeholder="correo@ejemplo.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña *</label>
+        <input id="password" type="password" class="form-control" formControlName="password" />
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" type="tel" class="form-control" formControlName="telefono" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="presupuesto">Presupuesto: {{ contactoForm.controls.presupuesto.value | currency: 'USD' }}</label>
+      <input id="presupuesto" type="range" formControlName="presupuesto" min="100" max="5000" step="100" />
+    </div>
+
+    <div class="form-group">
+      <label for="mensaje">Mensaje *</label>
+      <textarea id="mensaje" class="form-control" formControlName="mensaje" rows="5"></textarea>
+    </div>
+
+    <label class="checkbox-row">
+      <input type="checkbox" formControlName="newsletter" />
+      Suscribirme al newsletter
+    </label>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="button" class="btn btn-ghost" (click)="contactoForm.reset({ presupuesto: 500, newsletter: false })">Restablecer</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - TechStore Online</title>
+  <base href="./">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-page="carrito">
+
+  <header>
+    <p><a href="index.html"><img src="img/logo.svg" alt="Logo TechStore" width="40" height="40"> TechStore Online</a></p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="producto.html">Detalle</a></li>
+        <li><a href="carrito.html" aria-current="page">Carrito (<span id="contador-carrito">0</span>)</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="acerca.html">Acerca de</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>Carrito de compras</h1>
+    <p>Revisa tus productos antes de finalizar la compra.</p>
+
+    <table>
+      <caption id="carrito-caption">0 productos en el carrito</caption>
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="carrito-body"></tbody>
+      <tfoot>
+        <tr><td colspan="4">Subtotal</td><td colspan="2"><strong id="subtotal">$0.00</strong></td></tr>
+        <tr><td colspan="4">IVA (16%)</td><td colspan="2" id="iva">$0.00</td></tr>
+        <tr><td colspan="4">Total</td><td colspan="2"><strong id="total">$0.00</strong></td></tr>
+      </tfoot>
+    </table>
+
+    <h2>Estado del pedido</h2>
+    <label for="descuento">Descuento aplicado:</label>
+    <meter id="descuento" value="75" min="0" max="100">75%</meter>
+    <p>15% de descuento en tu compra.</p>
+    <label for="progreso">Progreso (3 de 10):</label>
+    <progress id="progreso" value="3" max="10">30%</progress>
+
+    <p><a href="productos.html">Seguir comprando</a></p>
+    <button type="button" id="btn-vaciar">Vaciar carrito</button>
+    <button type="button" id="btn-finalizar">Finalizar compra</button>
+
+    <dialog id="dialog-compra">
+      <h2>Compra realizada exitosamente</h2>
+      <p>Número de orden: <strong id="orden-numero"></strong></p>
+      <form method="dialog"><button type="submit">Cerrar</button></form>
+    </dialog>
+
+    <section>
+      <h2>Pasos para completar tu compra</h2>
+      <ol>
+        <li>Revisar el carrito</li>
+        <li>Datos de envío</li>
+        <li>Método de pago</li>
+        <li>Confirmar pedido</li>
+        <li>Confirmación por email</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 2026 TechStore Online</small>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.order-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.order-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.order-items {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.order-items li { padding: 0.2rem 0; }
+
+.order-total {
+  margin: 0;
+  font-weight: 800;
+  color: var(--primary);
+}

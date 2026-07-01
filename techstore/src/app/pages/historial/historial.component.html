@@ -1,0 +1,30 @@
+<div class="page">
+  <header class="page-header">
+    <h1>Historial de compras</h1>
+    <p>Tus pedidos anteriores en TechStore</p>
+  </header>
+
+  @if (ordenes.length === 0) {
+    <div class="empty-state panel">
+      <p>No tienes compras registradas.</p>
+      <a routerLink="/productos" class="btn btn-primary">Ir a productos</a>
+    </div>
+  } @else {
+    <div class="orders-list">
+      @for (orden of ordenes; track orden.id) {
+        <article class="panel order-card">
+          <div class="order-header">
+            <h2>Orden {{ orden.id }}</h2>
+            <span class="order-date">{{ orden.fecha | date: 'medium' }}</span>
+          </div>
+          <ul class="order-items">
+            @for (item of orden.items; track item.id) {
+              <li>{{ item.nombre }} ×{{ item.cantidad }}</li>
+            }
+          </ul>
+          <p class="order-total">Total: {{ orden.total | currency: 'USD' }}</p>
+        </article>
+      }
+    </div>
+  }
+</div>

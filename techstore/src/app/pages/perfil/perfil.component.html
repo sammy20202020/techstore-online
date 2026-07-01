@@ -1,0 +1,18 @@
+<div class="page">
+  <header class="page-header">
+    <h1>Mi Perfil</h1>
+    <p>Gestiona tu cuenta TechStore</p>
+  </header>
+
+  @if (usuario) {
+    <div class="panel profile-card">
+      <div class="profile-avatar">{{ usuario.nombre.charAt(0).toUpperCase() }}</div>
+      <div class="profile-info">
+        <h2>{{ usuario.nombre }}</h2>
+        <p>{{ usuario.email }}</p>
+        <p class="token-label">Token JWT: <code>{{ usuario.token.substring(0, 24) }}...</code></p>
+      </div>
+      <button type="button" class="btn btn-ghost" (click)="logout()">Cerrar sesión</button>
+    </div>
+  }
+</div>

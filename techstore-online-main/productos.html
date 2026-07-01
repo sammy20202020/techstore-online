@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - TechStore Online</title>
+  <base href="./">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-page="productos">
+
+  <header>
+    <p><a href="index.html"><img src="img/logo.svg" alt="Logo TechStore" width="40" height="40"> TechStore Online</a></p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" aria-current="page">Productos</a></li>
+        <li><a href="producto.html">Detalle</a></li>
+        <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="acerca.html">Acerca de</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>Catálogo de Productos</h1>
+    <p>Explora nuestra selección de productos tecnológicos.</p>
+
+    <form action="productos.html" method="get" role="search">
+      <label for="q">Buscar:</label>
+      <input type="search" id="q" name="q" placeholder="Nombre, marca...">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <aside aria-label="Filtros">
+      <h2>Filtrar</h2>
+      <form id="form-filtros" action="productos.html" method="get">
+        <fieldset>
+          <legend>Precio</legend>
+          <label for="precio-min">Mínimo ($)</label>
+          <input type="number" id="precio-min" name="precio_min" min="0" max="5000" list="precios-lista">
+          <label for="precio-max">Máximo ($)</label>
+          <input type="number" id="precio-max" name="precio_max" min="0" max="5000" list="precios-lista">
+          <datalist id="precios-lista">
+            <option value="100"><option value="500"><option value="1000"><option value="5000">
+          </datalist>
+        </fieldset>
+        <fieldset>
+          <legend>Marca</legend>
+          <label for="marca">Marca</label>
+          <select id="marca" name="marca">
+            <option value="">Todas</option>
+            <optgroup label="Computadoras">
+              <option value="dell">Dell</option>
+              <option value="hp">HP</option>
+              <option value="apple">Apple</option>
+            </optgroup>
+            <optgroup label="Smartphones">
+              <option value="samsung">Samsung</option>
+              <option value="xiaomi">Xiaomi</option>
+            </optgroup>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>Categoría</legend>
+          <input type="checkbox" id="cat-laptops" name="categoria" value="laptops">
+          <label for="cat-laptops">Laptops</label><br>
+          <input type="checkbox" id="cat-phones" name="categoria" value="smartphones">
+          <label for="cat-phones">Smartphones</label><br>
+          <input type="checkbox" id="cat-gaming" name="categoria" value="gaming">
+          <label for="cat-gaming">Gaming</label>
+        </fieldset>
+        <fieldset>
+          <legend>Color</legend>
+          <label for="color">Color</label>
+          <input type="color" id="color" name="color" value="#1E3A8A">
+        </fieldset>
+        <fieldset>
+          <legend>Disponibilidad</legend>
+          <input type="checkbox" id="solo-disponibles" name="disponible" value="1">
+          <label for="solo-disponibles">Solo disponibles</label>
+        </fieldset>
+        <button type="submit">Aplicar filtros</button>
+        <button type="reset">Limpiar</button>
+      </form>
+    </aside>
+
+    <section aria-labelledby="catalogo-titulo">
+      <h2 id="catalogo-titulo">Todos los productos</h2>
+      <div id="lista-productos"></div>
+    </section>
+  </main>
+
+  <footer>
+    <address>Calle Tecnología #123 — <a href="mailto:info@techstore.com">info@techstore.com</a></address>
+    <small>&copy; 2026 TechStore Online</small>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

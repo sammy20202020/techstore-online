@@ -1,0 +1,33 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+}
+
+.auth-card h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.auth-subtitle {
+  margin: 0 0 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.auth-toggle {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.auth-toggle .btn { width: 100%; }

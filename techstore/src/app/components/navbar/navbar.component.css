@@ -1,0 +1,135 @@
+:host { display: block; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+:host-context(body.tema-oscuro) .site-header {
+  background: rgba(30, 41, 59, 0.92);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand:hover { color: var(--primary); }
+
+.brand img {
+  border-radius: 8px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.main-nav a {
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.main-nav a:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.main-nav a.active {
+  color: var(--primary);
+  background: var(--primary-light);
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  color: var(--muted);
+  transition: all var(--transition);
+}
+
+.cart-btn:hover,
+.cart-btn.active {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.cart-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.25rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.header-user {
+  white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+  .main-nav { display: none; }
+
+  .header-inner {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-user { display: none; }
+}

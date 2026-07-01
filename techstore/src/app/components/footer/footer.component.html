@@ -1,0 +1,39 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>TechStore Online</h3>
+      <p>Tu tienda de confianza en tecnología. Productos de calidad con envío rápido.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/productos">Catálogo</a></li>
+        <li><a routerLink="/carrito">Carrito</a></li>
+        <li><a routerLink="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Redes</h4>
+      <ul>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <address>
+        Calle Tecnología #123, Ciudad Digital<br />
+        <a href="tel:+18001234567">+1 (800) 123-4567</a><br />
+        <a href="mailto:info&#64;techstore.com">info&#64;techstore.com</a>
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <small>&copy; {{ anio | date: 'yyyy' }} TechStore Online. Todos los derechos reservados.</small>
+  </div>
+</footer>
